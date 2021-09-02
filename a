@@ -1,0 +1,4 @@
+#!/bin/sh
+make -f m
+./a.o <i5.py
+
