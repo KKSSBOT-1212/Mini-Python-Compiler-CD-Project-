@@ -1,0 +1,334 @@
+---------------------------------Token Sequence--------------------------
+1 T_IMPT T_hWorld T_NL
+2 T_x T_EQL T_10 T_NL
+3 T_y T_EQL T_10 T_NL
+4 T_NL
+5 T_NL
+6 T_x T_PL T_y T_NL
+7 T_listX T_EQL T_OB T_CB T_NL
+8 T_NL
+9 T_Print T_OP T_"hello" T_CP T_NL
+10 T_NL
+11 T_NL
+12 T_Def T_F1 T_OP T_A T_Comma T_B T_Comma T_C T_CP T_Cln T_NL
+13 T_ID T_While T_OP T_listX T_OB T_2 T_CB T_EQ T_y T_CP T_Cln T_NL
+14 T_ID T_c T_EQL T_0 T_NL
+15 T_ND T_z T_EQL T_10 T_NL
+16 T_ND T_b T_EQL T_z T_NL
+17 T_ND T_If T_OP T_z T_EQ T_b T_CP T_Cln T_NL
+18 T_ID T_c T_EQL T_10 T_PL T_b T_NL
+19 T_DD T_Else T_Cln T_NL
+20 T_ID T_c T_EQL T_10 T_PL T_c T_NL
+21 T_DD T_w T_EQL T_21 T_NL
+22 T_DD T_NL
+23 T_NL
+24 T_m T_EQL T_F1 T_OP T_10 T_Comma T_10 T_Comma T_10 T_CP T_NL
+25 T_If T_OP T_x T_EQ T_y T_CP T_Cln T_NL
+26 T_ID T_x T_EQL T_10 T_NL
+27 T_Else T_Cln T_NL
+28 T_ID T_x T_EQL T_10 T_NL
+29 T_NL
+30 T_If T_OP T_x T_EQ T_y T_CP T_Cln T_NL
+31 T_ID T_x T_EQL T_10 T_NL
+32 T_Else T_Cln T_NL
+33 T_ID T_y T_EQL T_10 T_NL
+34 T_NL
+35 T_EOF 
+Valid Python Syntax
+
+-------------------------Abstract Syntax Tree--------------------------
+NewLine(2) 
+import(1) NewLine(2) 
+hWorld  =(2) NewLine(2) 
+      x  10  =(2) NewLine(2) 
+         y  10  +(2) NewLine(2) 
+            x  y  listX  NewLine(2) 
+                   Print(1) NewLine(2) 
+                   "hello"  Func_Name(3) NewLine(2) 
+                          F1  A, B, C  BeginBlock(2) =(2) NewLine(2) 
+                                   While(2) EndBlock  m  Func_Call(2) If(3) If(3) 
+                                            ==(2) BeginBlock(2) F1  10, 10, 10  ==(2) BeginBlock(2) Else(1) ==(2) BeginBlock(2) Else(1) 
+                                                        ListIndex(2) y  =(2) Next(2) x  y  =(2) EndBlock  BeginBlock(2) x  y  =(2) EndBlock  BeginBlock(2) 
+                                                                             listX  2  c  0  =(2) Next(2) x  10  =(2) EndBlock  x  10  =(2) EndBlock  
+                                                                                                           z  10  =(2) Next(2) x  10  y  10  
+                                                                                                                    b  z  If(3) EndBlock  
+                                                                                                                              ==(2) BeginBlock(2) Else(1) 
+                                                                                                                              z  b  =(2) EndBlock  BeginBlock(2) 
+                                                                                                                                        c  +(2) =(2) EndBlock(1) 
+                                                                                                                                         10  b  c  +(2) =(2) 
+                                                                                                                                             10  c  w  21  
+import hWorld
+T2 = 10
+x = T2
+T5 = 10
+y = T5
+T8 = x
+T9 = y
+T10 = T8 + T9
+T12 = "hello"
+Print T12
+Begin Function F1
+T17 = listX[2]
+T18 = y
+T19 = T17 == T18
+L0: If False T19 goto L1
+T20 = 0
+c = T20
+T23 = 10
+z = T23
+T26 = z
+b = T26
+T29 = z
+T30 = b
+T31 = T29 == T30
+If False T31 goto L2
+T32 = 10
+T33 = b
+T34 = T32 + T33
+c = T34
+goto L3
+L2: T39 = 10
+T40 = c
+T41 = T39 + T40
+c = T41
+T44 = 21
+w = T44
+L3: goto L0
+L1: End Function F1
+Push Param 10
+Push Param  10
+Push Param  10
+(T65)Call Function F1, 3
+Pop Params for Function F1, 3
+m = T65
+T68 = x
+T69 = y
+T70 = T68 == T69
+If False T70 goto L6
+T71 = 10
+x = T71
+goto L7
+L6: T76 = 10
+x = T76
+L7: T83 = x
+T84 = y
+T85 = T83 == T84
+If False T85 goto L8
+T86 = 10
+x = T86
+goto L9
+L8: T91 = 10
+y = T91
+L9: 
+--------------------------------All Quads---------------------------------
+0	import	hWorld	-	-
+1	=	10	-	T2
+2	=	T2	-	x
+3	=	10	-	T5
+4	=	T5	-	y
+5	=	x	-	T8
+6	=	y	-	T9
+7	+	T8	T9	T10
+8	=	"hello"	-	T12
+9	Print	T13	-	-
+10	BeginF	F1	-	-
+11	=[]	listX	2	T17
+12	=	y	-	T18
+13	==	T17	T18	T19
+14	Label	-	-	L0
+15	If False	T19	-	L1
+16	=	0	-	T20
+17	=	T20	-	c
+18	=	10	-	T23
+19	=	T23	-	z
+20	=	z	-	T26
+21	=	T26	-	b
+22	=	z	-	T29
+23	=	b	-	T30
+24	==	T29	T30	T31
+25	If False	T31	-	L2
+26	=	10	-	T32
+27	=	b	-	T33
+28	+	T32	T33	T34
+29	=	T34	-	c
+30	goto	-	-	L3
+31	Label	-	-	L2
+32	=	10	-	T39
+33	=	c	-	T40
+34	+	T39	T40	T41
+35	=	T41	-	c
+36	=	21	-	T44
+37	=	T44	-	w
+38	Label	-	-	L3
+39	goto	-	-	L0
+40	Label	-	-	L1
+41	EndF	F1	-	-
+42	Param	10	-	-
+43	Param	 10	-	-
+44	Param	 10	-	-
+45	Call	F1	3	T65
+46	=	T65	-	m
+47	=	x	-	T68
+48	=	y	-	T69
+49	==	T68	T69	T70
+50	If False	T70	-	L6
+51	=	10	-	T71
+52	=	T71	-	x
+53	goto	-	-	L7
+54	Label	-	-	L6
+55	=	10	-	T76
+56	=	T76	-	x
+57	Label	-	-	L7
+58	=	x	-	T83
+59	=	y	-	T84
+60	==	T83	T84	T85
+61	If False	T85	-	L8
+62	=	10	-	T86
+63	=	T86	-	x
+64	goto	-	-	L9
+65	Label	-	-	L8
+66	=	10	-	T91
+67	=	T91	-	y
+68	Label	-	-	L9
+--------------------------------------------------------------------------
+
+----------------------------All Symbol Tables----------------------------
+Scope	Name	Type		Declaration	Last Used Line
+(0, 1)	hWorld	PackageName	1		1
+(0, 1)	10	Constant	2		3
+(0, 1)	x	Identifier	2		30
+(0, 1)	y	Identifier	3		30
+(0, 1)	listX	ListTypeID	7		13
+(0, 1)	"hello"	Constant	9		9
+(0, 1)	F1	Func_Name	12		12
+(0, 1)	T2	ICGTempVar	-1		-1
+(0, 1)	T5	ICGTempVar	-1		-1
+(0, 1)	T8	ICGTempVar	-1		-1
+(0, 1)	T9	ICGTempVar	-1		-1
+(0, 1)	T10	ICGTempVar	-1		-1
+(0, 1)	T12	ICGTempVar	-1		-1
+(0, 1)	T13	ICGTempVar	-1		-1
+(0, 1)	T17	ICGTempVar	-1		-1
+(0, 1)	T18	ICGTempVar	-1		-1
+(0, 1)	T19	ICGTempVar	-1		-1
+(0, 1)	L0	ICGTempLabel	-1		-1
+(0, 1)	L1	ICGTempLabel	-1		-1
+(0, 1)	T20	ICGTempVar	-1		-1
+(0, 1)	T23	ICGTempVar	-1		-1
+(0, 1)	T26	ICGTempVar	-1		-1
+(0, 1)	T29	ICGTempVar	-1		-1
+(0, 1)	T30	ICGTempVar	-1		-1
+(0, 1)	T31	ICGTempVar	-1		-1
+(0, 1)	L2	ICGTempLabel	-1		-1
+(0, 1)	T32	ICGTempVar	-1		-1
+(0, 1)	T33	ICGTempVar	-1		-1
+(0, 1)	T34	ICGTempVar	-1		-1
+(0, 1)	L3	ICGTempLabel	-1		-1
+(0, 1)	T39	ICGTempVar	-1		-1
+(0, 1)	T40	ICGTempVar	-1		-1
+(0, 1)	T41	ICGTempVar	-1		-1
+(0, 1)	T44	ICGTempVar	-1		-1
+(0, 1)	T65	ICGTempVar	-1		-1
+(0, 1)	T68	ICGTempVar	-1		-1
+(0, 1)	T69	ICGTempVar	-1		-1
+(0, 1)	T70	ICGTempVar	-1		-1
+(0, 1)	L6	ICGTempLabel	-1		-1
+(0, 1)	T71	ICGTempVar	-1		-1
+(0, 1)	L7	ICGTempLabel	-1		-1
+(0, 1)	T76	ICGTempVar	-1		-1
+(0, 1)	T83	ICGTempVar	-1		-1
+(0, 1)	T84	ICGTempVar	-1		-1
+(0, 1)	T85	ICGTempVar	-1		-1
+(0, 1)	L8	ICGTempLabel	-1		-1
+(0, 1)	T86	ICGTempVar	-1		-1
+(0, 1)	L9	ICGTempLabel	-1		-1
+(0, 1)	T91	ICGTempVar	-1		-1
+(0, 2)	2	Constant	13		13
+(0, 2)	10	Constant	24		24
+(0, 2)	m	Identifier	24		24
+(1, 3)	0	Constant	14		14
+(1, 3)	c	Identifier	14		14
+(1, 3)	10	Constant	15		15
+(1, 3)	z	Identifier	15		17
+(1, 3)	b	Identifier	16		18
+(1, 3)	21	Constant	21		21
+(1, 3)	w	Identifier	21		21
+(2, 4)	10	Constant	18		18
+(2, 4)	c	Identifier	18		20
+(2, 16)	10	Constant	20		20
+(2, 16)	c	Identifier	20		20
+(1, 4)	10	Constant	26		26
+(1, 4)	x	Identifier	26		26
+(1, 8)	10	Constant	28		28
+(1, 8)	x	Identifier	28		28
+(1, 16)	10	Constant	31		31
+(1, 16)	x	Identifier	31		31
+(1, 32)	10	Constant	33		33
+(1, 32)	y	Identifier	33		33
+-------------------------------------------------------------------------
+
+--------------------------------All Quads---------------------------------
+0	import	hWorld	-	-
+1	=	10	-	T2
+2	=	T2	-	x
+3	=	10	-	T5
+4	=	T5	-	y
+9	Print	T13	-	-
+10	BeginF	F1	-	-
+11	=[]	listX	2	T17
+12	=	y	-	T18
+13	==	T17	T18	T19
+14	Label	-	-	L0
+15	If False	T19	-	L1
+16	=	0	-	T20
+17	=	T20	-	c
+18	=	10	-	T23
+19	=	T23	-	z
+20	=	z	-	T26
+21	=	T26	-	b
+22	=	z	-	T29
+23	=	b	-	T30
+24	==	T29	T30	T31
+25	If False	T31	-	L2
+26	=	10	-	T32
+27	=	b	-	T33
+28	+	T32	T33	T34
+29	=	T34	-	c
+30	goto	-	-	L3
+31	Label	-	-	L2
+32	=	10	-	T39
+33	=	c	-	T40
+34	+	T39	T40	T41
+35	=	T41	-	c
+38	Label	-	-	L3
+39	goto	-	-	L0
+40	Label	-	-	L1
+41	EndF	F1	-	-
+42	Param	10	-	-
+43	Param	 10	-	-
+44	Param	 10	-	-
+45	Call	F1	3	T65
+47	=	x	-	T68
+48	=	y	-	T69
+49	==	T68	T69	T70
+50	If False	T70	-	L6
+51	=	10	-	T71
+52	=	T71	-	x
+53	goto	-	-	L7
+54	Label	-	-	L6
+55	=	10	-	T76
+56	=	T76	-	x
+57	Label	-	-	L7
+58	=	x	-	T83
+59	=	y	-	T84
+60	==	T83	T84	T85
+61	If False	T85	-	L8
+62	=	10	-	T86
+63	=	T86	-	x
+64	goto	-	-	L9
+65	Label	-	-	L8
+66	=	10	-	T91
+67	=	T91	-	y
+68	Label	-	-	L9
+--------------------------------------------------------------------------
+

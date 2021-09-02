@@ -1,0 +1,32 @@
+import	scipy	-	-
+=	2	-	T2
+=	2	-	x
+=	1	-	T5
+=	1	-	y
+=	3	-	T8
+=	3	-	a
+=	4	-	T11
+=	4	-	b
+=	3	-	T14
+=	4	-	T15
+=	7	 	T16
+=	7	-	d
+=	2	-	T19
+=	1	-	T20
+=	False	 	T21
+If False	False	-	L0
+=	1	-	T22
+goto	-	-	L1
+Label	-	-	L0
+=	y	-	T27
+=	1	-	T28
+==	T27	1	T29
+If False	T29	-	L0
+=	2	-	T30
+goto	-	-	L1
+Label	-	-	L0
+=	1	-	T35
+=	1	-	c
+Label	-	-	L1
+Label	-	-	L1
+
