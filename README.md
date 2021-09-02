@@ -4,7 +4,7 @@
 
 * Handles If-else & While Constructs.
 
---->File Description:
+**--->File Description**:
 
   All .py files -> Different Input Files.
 
@@ -16,7 +16,7 @@
 
   Grammar.y -> Yacc Grammar File
   
---->Instructions For Compiling any LEX Program:
+**--->Instructions For Compiling any LEX Program**:
 
 Click on Execute CMD directly button in the IDE.
 
@@ -26,7 +26,7 @@ Click on Execute CMD directly button in the IDE.
 
   Execute the program by typing <executable name for the program>.exe.
   
---->Instructions For Compiling any YACC Program:
+**--->Instructions For Compiling any YACC Program**:
 
   Write lex program in a file file. l and yacc in a file file. y.
 
